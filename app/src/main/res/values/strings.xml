@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Xperia充电控制</string>
+    <string name="btn_text_suspend_charge">停止充电</string>
+    <string name="btn_text_continue_charge">继续充电</string>
+</resources>
