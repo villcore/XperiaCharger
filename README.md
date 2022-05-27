@@ -8,4 +8,6 @@ Xperia快捷控制，需要有root权限
 xperia5ii
 
 # 截图
-![Screenshot_20220527-130750](https://user-images.githubusercontent.com/11493797/170633394-019e74c7-456a-4201-acf1-975bb77b9af2.png)
+<img style="width:30%;" src="https://user-images.githubusercontent.com/11493797/170633394-019e74c7-456a-4201-acf1-975bb77b9af2.png" />
+<img style="width:30%;" src="https://user-images.githubusercontent.com/11493797/170634650-04255fc0-8326-4d7f-be45-04f26c924a75.png" />
+<img style="width:30%;" src="https://user-images.githubusercontent.com/11493797/170634661-0ccc49a3-a78b-4850-9b49-db062fa620a8.png" />
