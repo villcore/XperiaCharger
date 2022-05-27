@@ -1,4 +1,4 @@
-package com.villcore.xperia.charger;
+package com.villcore.xperia.control;
 
 import org.junit.Test;
 

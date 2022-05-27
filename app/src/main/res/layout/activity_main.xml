@@ -6,26 +6,239 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="411dp"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="1dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/suspend_charge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_text_suspend_charge" />
+        <LinearLayout
+            android:layout_width="411dp"
+            android:layout_height="729dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="1dp">
 
-        <Button
-            android:id="@+id/continue_charge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_text_continue_charge" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/suspend_charge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_text_suspend_charge" />
+
+            <Button
+                android:id="@+id/continue_charge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_text_continue_charge" />
+
+            <Button
+                android:id="@+id/enable_image_enhancer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_text_enable_image_enhancer" />
+
+            <Button
+                android:id="@+id/disable_image_enhancer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_text_disable_image_enhancer" />
+
+            <Button
+                android:id="@+id/min_cpu_freq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_text_min_cpu_freq" />
+
+            <Button
+                android:id="@+id/max_cpu_freq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_text_max_cpu_freq" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight=".50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/view_text_cpu_governor_title"
+                        android:textAlignment="center" />
+
+                    <RadioGroup
+                        android:id="@+id/cpu_governor_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/cpu_governor_powersave"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_cpu_governor_powersave" />
+
+                        <RadioButton
+                            android:id="@+id/cpu_governor_performance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_cpu_governor_performance" />
+
+                        <RadioButton
+                            android:id="@+id/cpu_governor_schedutil"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_cpu_governor_schedutil" />
+
+                        <RadioButton
+                            android:id="@+id/cpu_governor_ondemand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_cpu_governor_ondemand" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight=".50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/view_text_cpu_performance_title"
+                        android:textAlignment="center" />
+
+                    <RadioGroup
+                        android:id="@id/cpu_performance_level_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/_30_cpu_freq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_30_cpu_freq" />
+
+                        <RadioButton
+                            android:id="@+id/_50_cpu_freq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_50_cpu_freq" />
+
+                        <RadioButton
+                            android:id="@+id/_75_cpu_freq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_75_cpu_freq" />
+
+                        <RadioButton
+                            android:id="@+id/_100_cpu_freq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_100_cpu_freq" />
+                    </RadioGroup>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/disable_cpu_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/btn_text_disable_cpu_0"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/disable_cpu_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_text_disable_cpu_1"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/disable_cpu_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_text_disable_cpu_2"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/disable_cpu_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_text_disable_cpu_3"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/disable_cpu_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/btn_text_disable_cpu_4"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/disable_cpu_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_text_disable_cpu_5"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/disable_cpu_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_text_disable_cpu_6"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/disable_cpu_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_text_disable_cpu_7"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

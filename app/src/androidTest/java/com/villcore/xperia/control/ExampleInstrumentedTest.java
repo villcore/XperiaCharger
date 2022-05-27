@@ -1,4 +1,4 @@
-package com.villcore.xperia.charger;
+package com.villcore.xperia.control;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.villcore.xperia.charger", appContext.getPackageName());
+        assertEquals("com.villcore.xperia.control", appContext.getPackageName());
     }
 }
