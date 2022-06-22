@@ -46,6 +46,18 @@
                 android:text="@string/btn_text_disable_image_enhancer" />
 
             <Button
+                android:id="@+id/enable_ext_hdr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_text_enable_ext_hdr" />
+
+            <Button
+                android:id="@+id/disable_ext_hdr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_text_disable_ext_hdr" />
+
+            <Button
                 android:id="@+id/min_cpu_freq"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

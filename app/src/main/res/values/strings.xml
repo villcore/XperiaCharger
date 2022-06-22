@@ -4,6 +4,8 @@
     <string name="btn_text_continue_charge">停止H.S.电量控制（继续充电）</string>
     <string name="btn_text_enable_image_enhancer">打开视频图像增强</string>
     <string name="btn_text_disable_image_enhancer">关闭视频图像增强</string>
+    <string name="btn_text_enable_ext_hdr">打开HDR亮度增强</string>
+    <string name="btn_text_disable_ext_hdr">关闭HDR亮度增强</string>
     <string name="btn_text_min_cpu_freq">重置最低CPU频率</string>
     <string name="btn_text_max_cpu_freq">重置最高CPU频率</string>
     <string name="btn_text_30_cpu_freq">30%</string>

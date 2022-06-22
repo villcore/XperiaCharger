@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     private enum CpuFreqLevel {
 
+        _lowest("300000", "710400", "844800"),
         _30("883200", "1171200", "1305600"),
         _50("1075200", "1478400", "1747200"),
         _75("1420800", "1958400", "2265600"),
@@ -101,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
         Button disableImageEnhancer = this.findViewById(R.id.disable_image_enhancer);
         disableImageEnhancer.setOnClickListener(v -> setVideoEnhancer(false));
 
+        // ext hdr mode
+        Button enableExtHdrButton = this.findViewById(R.id.enable_ext_hdr);
+        enableExtHdrButton.setOnClickListener(v -> setExtHdr(true));
+
+        Button disableExtHdrButton = this.findViewById(R.id.disable_ext_hdr);
+        disableExtHdrButton.setOnClickListener(v -> setExtHdr(false));
+
         // cpu freq
         Button minCpuFreqButton = this.findViewById(R.id.min_cpu_freq);
         minCpuFreqButton.setOnClickListener(v -> minCpuFreq());
@@ -141,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
         // cpu core
         Button disableCpu0Button = this.findViewById(R.id.disable_cpu_0);
-        disableCpu0Button.setOnClickListener(v -> Toast.makeText(MainActivity.this, "禁止修改", Toast.LENGTH_SHORT).show());
+        disableCpu0Button.setOnClickListener(v -> changeCpuState(v, 0));
         refreshCpuStateButtonTextAndColor(disableCpu0Button, 0);
 
         Button disableCpu1Button = this.findViewById(R.id.disable_cpu_1);
@@ -179,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
             OutputStream out = process.getOutputStream();
             String cmd = String.format("am broadcast -a %s --ez SUSPEND %s --receiver-permission %s", SMART_CHARGER_RECEIVER, suspendState, SMART_CHARGER_RECEIVER_PERMISSION);
             out.write(cmd.getBytes());
+            out.flush();
             out.close();
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "错误", Toast.LENGTH_SHORT).show();
@@ -198,6 +207,20 @@ public class MainActivity extends AppCompatActivity {
             OutputStream out = process.getOutputStream();
             String cmd = String.format("setprop persist.xperia.swiqi.effect.mode %s", enableMode ? "1" : "0");
             out.write(cmd.getBytes());
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void setExtHdr(boolean enableMode) {
+        try {
+            Process process = Runtime.getRuntime().exec(new String[]{"su"});
+            OutputStream out = process.getOutputStream();
+            String cmd = String.format("service call vendor.semc.hardware.extlight.IExtLight/default 3 i32 %s", enableMode ? "1" : "0");
+            out.write(cmd.getBytes());
+            out.flush();
             out.close();
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "错误", Toast.LENGTH_SHORT).show();
@@ -279,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
                     cpuFreq[0], cpuFreq[1], cpuFreq[2]
             );
             out.write(cmd.getBytes());
+            out.flush();
             out.close();
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "错误", Toast.LENGTH_SHORT).show();
@@ -299,6 +323,7 @@ public class MainActivity extends AppCompatActivity {
                     cpuFreq[0], cpuFreq[1], cpuFreq[2]
             );
             out.write(cmd.getBytes());
+            out.flush();
             out.close();
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "错误", Toast.LENGTH_SHORT).show();
@@ -335,6 +360,7 @@ public class MainActivity extends AppCompatActivity {
                     governor, governor, governor
             );
             out.write(cmd.getBytes());
+            out.flush();
             out.close();
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "错误", Toast.LENGTH_SHORT).show();
@@ -453,6 +479,7 @@ public class MainActivity extends AppCompatActivity {
                     cpu, online ? 1 : 0, cpu
             );
             out.write(cmd.getBytes());
+            out.flush();
             out.close();
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "错误", Toast.LENGTH_SHORT).show();
